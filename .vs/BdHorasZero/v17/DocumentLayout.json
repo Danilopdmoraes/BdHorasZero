@@ -1,7 +1,24 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\PROJETOS\\BdHorasZero\\",
-  "Documents": [],
+  "WorkspaceRootPath": "G:\\PROJETOS\\BdHorasZero\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|g:\\projetos\\bdhoraszero\\bdhoraszero\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|solutionrelative:bdhoraszero\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|g:\\projetos\\bdhoraszero\\bdhoraszero\\controllers\\vinculoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|solutionrelative:bdhoraszero\\controllers\\vinculoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|g:\\projetos\\bdhoraszero\\bdhoraszero\\views\\vinculos\\editargrupo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|solutionrelative:bdhoraszero\\views\\vinculos\\editargrupo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|g:\\projetos\\bdhoraszero\\bdhoraszero\\views\\vinculos\\montargrupo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|solutionrelative:bdhoraszero\\views\\vinculos\\montargrupo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -9,11 +26,60 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "site.js",
+              "DocumentMoniker": "G:\\PROJETOS\\BdHorasZero\\BdHorasZero\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "BdHorasZero\\wwwroot\\js\\site.js",
+              "ToolTip": "G:\\PROJETOS\\BdHorasZero\\BdHorasZero\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "BdHorasZero\\wwwroot\\js\\site.js",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAAAIwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-24T20:10:03.973Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MontarGrupo.cshtml",
+              "DocumentMoniker": "G:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Views\\Vinculos\\MontarGrupo.cshtml",
+              "RelativeDocumentMoniker": "BdHorasZero\\Views\\Vinculos\\MontarGrupo.cshtml",
+              "ToolTip": "G:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Views\\Vinculos\\MontarGrupo.cshtml",
+              "RelativeToolTip": "BdHorasZero\\Views\\Vinculos\\MontarGrupo.cshtml",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-24T20:27:47.034Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EditarGrupo.cshtml",
+              "DocumentMoniker": "G:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Views\\Vinculos\\EditarGrupo.cshtml",
+              "RelativeDocumentMoniker": "BdHorasZero\\Views\\Vinculos\\EditarGrupo.cshtml",
+              "ToolTip": "G:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Views\\Vinculos\\EditarGrupo.cshtml",
+              "RelativeToolTip": "BdHorasZero\\Views\\Vinculos\\EditarGrupo.cshtml",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAHoAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-24T20:23:15.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VinculosController.cs",
+              "DocumentMoniker": "G:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Controllers\\VinculosController.cs",
+              "RelativeDocumentMoniker": "BdHorasZero\\Controllers\\VinculosController.cs",
+              "ToolTip": "G:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Controllers\\VinculosController.cs",
+              "RelativeToolTip": "BdHorasZero\\Controllers\\VinculosController.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAqwIQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T20:10:13.482Z",
+              "EditorCaption": ""
             }
           ]
         }

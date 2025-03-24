@@ -67,12 +67,9 @@ $(document).ready(function () {
     });
 
 
-    // limpa o input após fechar o modal
-    $("#modalAviso").on("hidden.bs.modal", function () {
-        $("#funcionarioInput").val("");
-    });
 
 
+    // se o funcionário possui vínculo, exibe o modal. Se não possui, então adiciona à <table>.
     $("#adicionarBtn").click(function () {
         var idgestor = $("#IdGestor").val();
         var valores = $("#funcionarioInput").val().split(" - ");
@@ -122,57 +119,10 @@ $(document).ready(function () {
         }
     });
 
-
-
-
-
-
-
-
-
-    // script para Vinculos/EditarGrupo
-
-    //$(document).ready(function () {
-    //    $("#btnAtualizar").click(function () {
-    //        let vinculos = [];
-
-    //        $("#tabelaEditarTbVinculos tbody tr").each(function () {
-    //            let idVinculo = $(this).data("id");
-    //            let idGestor = $(this).data("gestor");
-    //            let idFuncionario = $(this).data("funcionario");
-    //            let dataFim = $(this).hasClass("removido") ? new Date().toISOString() : null;
-
-    //            vinculos.push({
-    //                idVinculo: idVinculo,
-    //                idGestor: idGestor,
-    //                idFuncionario: idFuncionario,
-    //                dataFim: dataFim
-    //            });
-    //        });
-
-
-
-    //        $.ajax({
-    //            url: "AtualizarGrupo",
-    //            type: "POST",
-    //            contentType: "application/json",
-    //            data: JSON.stringify(vinculos),
-    //            success: function (response) {
-    //                if (response.success) {
-    //                    alert("Atualização realizada com sucesso!");
-    //                    location.reload();
-    //                }
-    //            }
-    //        });
-    //    });
-
-
-
-
-
-
-
-
+    // limpa o input após fechar o modal
+    $("#modalAviso").on("hidden.bs.modal", function () {
+        $("#funcionarioInput").val("");
+    });
 
 
 
@@ -195,6 +145,7 @@ $(document).ready(function () {
         var timestamp = new Date().toISOString(); // Captura o timestamp no formato ISO
 
         $("#tabelaSelecionados tbody tr").each(function () {
+
             var idGestor = $(this).find("td:eq(0)").text();
             var idFuncionario = $(this).find("td:eq(1)").text();
 
@@ -218,5 +169,50 @@ $(document).ready(function () {
         });
 
     });
+
+
+    // script para Vinculos/EditarGrupo
+    //$(document).ready(function () {
+
+    $("#atualizarBtn").click(function () {
+        let vinculos = [];
+
+        $("#tabelaSelecionados tbody tr").each(function () {
+            let idVinculo = $(this).data("id");
+            let idGestor = $(this).data("gestor");
+            let idFuncionario = $(this).data("funcionario");
+            let dataFim = $(this).hasClass("removido") ? new Date().toISOString() : null;
+
+            vinculos.push({
+                idVinculo: idVinculo,
+                idGestor: idGestor,
+                idFuncionario: idFuncionario,
+                dataFim: dataFim
+            });
+        });
+
+
+
+        $.ajax({
+            url: "AtualizarGrupo",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(vinculos),
+            success: function (response) {
+                if (response.success) {
+                    alert("Atualização realizada com sucesso!");
+                    location.reload();
+                }
+            }
+        });
+    });
+    //}
+
+
+
+
+
+
+
 
 });

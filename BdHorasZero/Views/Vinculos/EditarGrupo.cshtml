@@ -56,9 +56,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title fs-5">Aviso</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
-                                    @* <span aria-hidden="true">&times;</span> <!-- é o botão 'X' de fechar --> *@
-                                </button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                             </div>
                             <div class="modal-body">
                                 <p id="mensagemModal"></p>
@@ -73,8 +71,7 @@
 
 
 
-                <table class="table table-hover" id="tabelaEditarTbVinculos">
-                @* <table class="table table-hover"> *@
+                <table class="table table-hover" id="tabelaSelecionados">
                     <thead>
                         <tr>
                             <th scope="col">IdG</th>
@@ -84,8 +81,6 @@
                             <th scope="col">Email</th>
                             <th scope="col">Saldo</th>
                             <th scope="col" class="text-end">btnRemover</th>
-
-                            @* <th scope="col" class="text-end">Saldo</th> *@
                         </tr>
                     </thead>
 
@@ -125,7 +120,7 @@
 
 
                 <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-primary" id="gravarBtn">Atualizar Grupo [TB_Vinculos]</button>
+                    <button type="submit" class="btn btn-primary" id="atualizarBtn">Atualizar Grupo [TB_Vinculos]</button>
                     <a class="btn btn-danger" role="button" asp-controller="Home" asp-action="Index">Cancelar</a>
                 </div>
 

@@ -593,3 +593,4 @@ C:\PROJETOS\BdHorasZero\BdHorasZero\obj\Debug\net8.0\refint\BdHorasZero.dll
 C:\PROJETOS\BdHorasZero\BdHorasZero\obj\Debug\net8.0\BdHorasZero.pdb
 C:\PROJETOS\BdHorasZero\BdHorasZero\obj\Debug\net8.0\BdHorasZero.genruntimeconfig.cache
 C:\PROJETOS\BdHorasZero\BdHorasZero\obj\Debug\net8.0\ref\BdHorasZero.dll
+G:\PROJETOS\BdHorasZero\BdHorasZero\obj\Debug\net8.0\BdHorasZero.sourcelink.json

@@ -31,15 +31,6 @@ namespace BdHorasZero.Controllers
         [Authorize]
         public async Task <IActionResult> MontarGrupo() // View MontarGrupo
         {
-            //await _gestoresService.CarregarGestorAsync();
-
-            //var gestor = _gestoresService.ObterGestorDaSessao();
-            //if (gestor == null)
-            //{
-            //    return Redirect("~/Identity/Account/Login");
-            //}
-            //ViewData["Gestor"] = gestor;
-
             return View();
         }
 
@@ -122,21 +113,28 @@ namespace BdHorasZero.Controllers
                 var existingVinculo = 
                     _context.TB_Vinculos
                     .FirstOrDefault(v => v.IdVinculo == vinculo.IdVinculo); // aqui provavelmente está errado (ou não). O que eu quero saber é se os funcionários do grupoSelecionado já possuem vínculo com o gestor logado
-
-                if (existingVinculo != null) // se já houver o vínculo...
+                                                                            // e aqui destaca a linha em TB_Vinculos que é igual à linha que veio por parâmetro
+                if (existingVinculo != null) // Na verdade parece mais com "vínculo que veio da <table>"
                 {
+
+
                     if (vinculo.DataFim != null) // ...e se DataFim tiver timestamp... significa que o funcionário está livre, pode criar o vínculo
                     {
-                        existingVinculo.DataFim = DateTime.Now; // aqui também deve estar errado. Vai gravar timestamp em DataFim??
+                        existingVinculo.IdGestor = vinculo.IdGestor;
+                        existingVinculo.IdFuncionario = vinculo.IdFuncionario;
+                        existingVinculo.DataInicio = DateTime.Now; // aqui também deve estar errado. Vai gravar timestamp em DataFim??
                         _context.TB_Vinculos.Update(existingVinculo);
                     }
                 }
 
                 else // senão cria o vínculo. Isso é para funcionários novos. Talvez melhor usar o .append(), que já funciona lá no Site.js
                 {
-                    _context.TB_Vinculos.Add(new VinculosModel 
-                    { 
-                        IdFuncionario = vinculo.IdFuncionario
+                    _context.TB_Vinculos.Add(new VinculosModel
+                    {
+                        IdGestor = vinculo.IdGestor,
+                        IdFuncionario = vinculo.IdFuncionario,
+                        DataInicio = DateTime.Now,
+                        DataFim = null
                     });
                 }
 
