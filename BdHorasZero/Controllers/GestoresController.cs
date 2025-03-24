@@ -1,4 +1,5 @@
 ﻿using BdHorasZero.Data;
+using BdHorasZero.Filters;
 using BdHorasZero.Models;
 using BdHorasZero.Repository;
 using BdHorasZero.Services;
@@ -7,6 +8,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BdHorasZero.Controllers
 {
+
+    // filtro para obter as informações do Gestor logado
+    [ServiceFilter(typeof(GestorLogadoFilter))]
+
     public class GestoresController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -24,49 +29,24 @@ namespace BdHorasZero.Controllers
             _gestoresService = gestoresService;
         }
 
-
+        
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            await _gestoresService.CarregarGestorAsync();
-
-            var gestor = _gestoresService.ObterGestorDaSessao();
-            if (gestor == null)
-            {
-                return Redirect("~/Identity/Account/Login");
-                //return RedirectToAction("Login", "Account", new { area = "Identity" });
-                //return RedirectToAction("Login", "Account");
-            }
-            ViewData["Gestor"] = gestor;
             return View();
         }
 
         [Authorize]
         public async Task<IActionResult> CadastrarGrupoGestores()
         {
-            await _gestoresService.CarregarGestorAsync();
-            var gestor = _gestoresService.ObterGestorDaSessao();
-            if (gestor == null)
-            {
-                return Redirect("~/Identity/Account/Login");
-            }
-            ViewData["Gestor"] = gestor;
             return View();
         }
 
         [HttpPost]
-        public async Task <IActionResult> AlterarTbGestores(GestoresModel gestor)
+        public async Task <IActionResult> AlterarTbGestores(GestoresModel novoNomeGrupo)
         {
-            await _gestoresService.CarregarGestorAsync();
-            var gestorLogado = _gestoresService.ObterGestorDaSessao();
-            if (gestor == null)
-            {
-                return Redirect("~/Identity/Account/Login");
-            }
-            ViewData["Gestor"] = gestor;
-
-            _gestoresRepository.AtualizarTbGestores(gestor);
-            //return RedirectToAction("MontarGrupoGestores");
+            _gestoresRepository.AtualizarTbGestores(novoNomeGrupo);
+            
             return Redirect("~/Vinculos/MontarGrupo");
         }
     }

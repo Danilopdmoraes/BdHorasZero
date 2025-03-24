@@ -3,8 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using BdHorasZero.Models;
 using BdHorasZero.Services;
 using Microsoft.AspNetCore.Authorization;
+using BdHorasZero.Filters;
 
 namespace BdHorasZero.Controllers;
+
+// filtro para obter as informações do Gestor logado
+[ServiceFilter(typeof(GestorLogadoFilter))]
 
 public class HomeController : Controller
 {
@@ -17,10 +21,12 @@ public class HomeController : Controller
         _gestoresService = gestoresService;
     }
 
-    //public IActionResult Index()
-    //{
-    //    return View();
-    //}
+
+    [Authorize]
+    public IActionResult Index()
+    {
+        return View();
+    }
 
     public IActionResult Privacy()
     {
@@ -35,20 +41,19 @@ public class HomeController : Controller
 
 
 
-    [Authorize]
-    public async Task<IActionResult> Index()
-    {
-        await _gestoresService.CarregarGestorAsync();
+    //[Authorize]
+    //public async Task<IActionResult> Index()
+    //{
+        //await _gestoresService.CarregarGestorAsync();
 
-        var gestor = _gestoresService.ObterGestorDaSessao();
-        if (gestor == null)
-        {
-            return Redirect("~/Identity/Account/Login");
-            //return RedirectToAction("Login", "Account", new { area = "Identity" });
-            //return RedirectToAction("Login", "Account");
-        }
-        ViewData["Gestor"] = gestor;
-
-        return View();
-    }
+        //var gestor = _gestoresService.ObterGestorDaSessao();
+        //if (gestor == null)
+        //{
+        //    return Redirect("~/Identity/Account/Login");
+        //    //return RedirectToAction("Login", "Account", new { area = "Identity" });
+        //    //return RedirectToAction("Login", "Account");
+        //}
+        //ViewData["Gestor"] = gestor;
+    //    return View();
+    //}
 }

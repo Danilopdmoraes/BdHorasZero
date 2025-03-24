@@ -108,7 +108,7 @@ $(document).ready(function () {
                                 <td>${nome}</td>
                                 <td>${email}</td>
                                 <td><p>saldo aqui<p></td>
-                                <td><button type="button" class="btn btn-danger remover">Remover</button></td>
+                                <td class="text-end"><button type="button" class="btn btn-danger remover">Remover</button></td>
                             </tr>`;
 
                         $("#tabelaSelecionados tbody").append(newRow);
@@ -121,6 +121,63 @@ $(document).ready(function () {
 
         }
     });
+
+
+
+
+
+
+
+
+
+    // script para Vinculos/EditarGrupo
+
+    //$(document).ready(function () {
+    //    $("#btnAtualizar").click(function () {
+    //        let vinculos = [];
+
+    //        $("#tabelaEditarTbVinculos tbody tr").each(function () {
+    //            let idVinculo = $(this).data("id");
+    //            let idGestor = $(this).data("gestor");
+    //            let idFuncionario = $(this).data("funcionario");
+    //            let dataFim = $(this).hasClass("removido") ? new Date().toISOString() : null;
+
+    //            vinculos.push({
+    //                idVinculo: idVinculo,
+    //                idGestor: idGestor,
+    //                idFuncionario: idFuncionario,
+    //                dataFim: dataFim
+    //            });
+    //        });
+
+
+
+    //        $.ajax({
+    //            url: "AtualizarGrupo",
+    //            type: "POST",
+    //            contentType: "application/json",
+    //            data: JSON.stringify(vinculos),
+    //            success: function (response) {
+    //                if (response.success) {
+    //                    alert("Atualização realizada com sucesso!");
+    //                    location.reload();
+    //                }
+    //            }
+    //        });
+    //    });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     // remove funcionário da tabela com delegação de eventos, considerando a class=".btn-danger" (e não o id="", que é default):

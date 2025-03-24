@@ -3,17 +3,41 @@
   "WorkspaceRootPath": "C:\\PROJETOS\\BdHorasZero\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|c:\\projetos\\bdhoraszero\\bdhoraszero\\views\\vinculos\\editargrupo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|solutionrelative:bdhoraszero\\views\\vinculos\\editargrupo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|c:\\projetos\\bdhoraszero\\bdhoraszero\\views\\vinculos\\montargrupo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|solutionrelative:bdhoraszero\\views\\vinculos\\montargrupo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|c:\\projetos\\bdhoraszero\\bdhoraszero\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|solutionrelative:bdhoraszero\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/BdHorasZero/True/SqlTable/dbo.TB_Vinculos.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/BdHorasZero/True/SqlTable/dbo.TB_Funcionarios.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/BdHorasZero/True/SqlTable/dbo.TB_Ocorrencias.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|c:\\projetos\\bdhoraszero\\bdhoraszero\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|solutionrelative:bdhoraszero\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|c:\\projetos\\bdhoraszero\\bdhoraszero\\controllers\\gestorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|solutionrelative:bdhoraszero\\controllers\\gestorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\danilo_002993\\AppData\\Local\\Temp\\ya2cszl4..sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
+      "AbsoluteMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|c:\\projetos\\bdhoraszero\\bdhoraszero\\filters\\gestorlogadofilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|solutionrelative:bdhoraszero\\filters\\gestorlogadofilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\danilo_002993\\AppData\\Local\\Temp\\ya2cszl4..sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\danilo_002993\\AppData\\Local\\Temp\\ya2cszl4..sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame"
+      "AbsoluteMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|c:\\projetos\\bdhoraszero\\bdhoraszero\\views\\gestores\\cadastrargrupogestores.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34747F31-D998-4E53-B430-C6A9C61F362C}|BdHorasZero\\BdHorasZero.csproj|solutionrelative:bdhoraszero\\views\\gestores\\cadastrargrupogestores.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,25 +56,122 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "EditarGrupo.cshtml",
+              "DocumentMoniker": "C:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Views\\Vinculos\\EditarGrupo.cshtml",
+              "RelativeDocumentMoniker": "BdHorasZero\\Views\\Vinculos\\EditarGrupo.cshtml",
+              "ToolTip": "C:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Views\\Vinculos\\EditarGrupo.cshtml",
+              "RelativeToolTip": "BdHorasZero\\Views\\Vinculos\\EditarGrupo.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-24T14:46:46.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MontarGrupo.cshtml",
+              "DocumentMoniker": "C:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Views\\Vinculos\\MontarGrupo.cshtml",
+              "RelativeDocumentMoniker": "BdHorasZero\\Views\\Vinculos\\MontarGrupo.cshtml",
+              "ToolTip": "C:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Views\\Vinculos\\MontarGrupo.cshtml",
+              "RelativeToolTip": "BdHorasZero\\Views\\Vinculos\\MontarGrupo.cshtml",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAuwGgAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-24T14:43:55.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "BdHorasZero\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "BdHorasZero\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-24T14:42:55.021Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "dbo.TB_Vinculos [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/BdHorasZero/True/SqlTable/dbo.TB_Vinculos.sql",
+              "ToolTip": "dbo.TB_Vinculos [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-03-24T14:41:40.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "dbo.TB_Funcionarios [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/BdHorasZero/True/SqlTable/dbo.TB_Funcionarios.sql",
+              "ToolTip": "dbo.TB_Funcionarios [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-03-24T14:40:30.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "dbo.TB_Ocorrencias [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/BdHorasZero/True/SqlTable/dbo.TB_Ocorrencias.sql",
+              "ToolTip": "dbo.TB_Ocorrencias [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-03-24T14:40:02.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Program.cs",
+              "RelativeDocumentMoniker": "BdHorasZero\\Program.cs",
+              "ToolTip": "C:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Program.cs",
+              "RelativeToolTip": "BdHorasZero\\Program.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T14:15:42.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GestorLogadoFilter.cs",
+              "DocumentMoniker": "C:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Filters\\GestorLogadoFilter.cs",
+              "RelativeDocumentMoniker": "BdHorasZero\\Filters\\GestorLogadoFilter.cs",
+              "ToolTip": "C:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Filters\\GestorLogadoFilter.cs",
+              "RelativeToolTip": "BdHorasZero\\Filters\\GestorLogadoFilter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T14:05:36.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "GestoresController.cs",
               "DocumentMoniker": "C:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Controllers\\GestoresController.cs",
               "RelativeDocumentMoniker": "BdHorasZero\\Controllers\\GestoresController.cs",
               "ToolTip": "C:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Controllers\\GestoresController.cs",
               "RelativeToolTip": "BdHorasZero\\Controllers\\GestoresController.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAA9wDkAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-24T10:16:33.452Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SQLQuery1.sql ",
-              "DocumentMoniker": "C:\\Users\\danilo_002993\\AppData\\Local\\Temp\\ya2cszl4..sql",
-              "RelativeDocumentMoniker": "..\\..\\Users\\danilo_002993\\AppData\\Local\\Temp\\ya2cszl4..sql",
-              "ToolTip": "SQLQuery1.sql *",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-03-24T10:13:35.018Z",
+              "DocumentIndex": 9,
+              "Title": "CadastrarGrupoGestores.cshtml",
+              "DocumentMoniker": "C:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Views\\Gestores\\CadastrarGrupoGestores.cshtml",
+              "RelativeDocumentMoniker": "BdHorasZero\\Views\\Gestores\\CadastrarGrupoGestores.cshtml",
+              "ToolTip": "C:\\PROJETOS\\BdHorasZero\\BdHorasZero\\Views\\Gestores\\CadastrarGrupoGestores.cshtml",
+              "RelativeToolTip": "BdHorasZero\\Views\\Gestores\\CadastrarGrupoGestores.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-24T14:27:31.002Z",
               "EditorCaption": ""
             }
           ]
