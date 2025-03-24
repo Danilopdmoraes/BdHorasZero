@@ -24,8 +24,20 @@ namespace BdHorasZero.Controllers
             _gestoresService = gestoresService;
         }
 
-        public IActionResult Index()
+
+        [Authorize]
+        public async Task<IActionResult> Index()
         {
+            await _gestoresService.CarregarGestorAsync();
+
+            var gestor = _gestoresService.ObterGestorDaSessao();
+            if (gestor == null)
+            {
+                return Redirect("~/Identity/Account/Login");
+                //return RedirectToAction("Login", "Account", new { area = "Identity" });
+                //return RedirectToAction("Login", "Account");
+            }
+            ViewData["Gestor"] = gestor;
             return View();
         }
 
@@ -54,7 +66,8 @@ namespace BdHorasZero.Controllers
             ViewData["Gestor"] = gestor;
 
             _gestoresRepository.AtualizarTbGestores(gestor);
-            return RedirectToAction("MontarGrupoGestores");
+            //return RedirectToAction("MontarGrupoGestores");
+            return Redirect("~/Vinculos/MontarGrupo");
         }
     }
 }

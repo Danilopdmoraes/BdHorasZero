@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Gestores";
+    var gestor = ViewData["Gestor"] as GestoresModel;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Área do Gestor</h1>
+    <p>Exibe para Gestores já cadastrados no banco da aplicação. <br />Requisitos: Gestor cadastrado no banco da aplicação e Gestor com o Grupo montado</p>
+</div>
+
+
+
+<div class="d-flex justify-content-center">
+    <div class="col-12 col-sm-11 col-md-10 col-lg-7 col-xl-6">
+        <div class="table-responsive-sm">
+
+            <div>
+                <p class="fs-3">@gestor.NomeGrupo</p>
+            </div>
+
+            @* <div> *@
+            @*     <p>ID: @ViewBag.UserId</p> *@
+            @* </div> *@
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Funcionário</th>
+                        <th scope="col">Saldo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Silvio Santos</td>
+                        <td>07:00</td>
+                    </tr>
+                    <tr>
+                        <td>Fausto Silva</td>
+                        <td>-12:00</td>
+                    </tr>
+                    <tr>
+                        <td>Sérgio Malandro</td>
+                        <td>03:00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-grid gap-2">
+            <a class="btn btn-primary" role="button" asp-controller="Gestores" asp-action="EditarGrupoGestores">Editar Grupo</a>
+            @* <a class="btn btn-danger" role="button" asp-controller="Home" asp-action="Index">Cancelar</a> *@
+        </div>
+    </div>
+</div>

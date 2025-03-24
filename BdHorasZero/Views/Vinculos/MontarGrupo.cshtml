@@ -31,12 +31,37 @@
 
                 <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label">Pesquisar Funcionário</label>
-                    <input type="text" class="form-control" id="funcionarioInput" placeholder="Digite um nome ou matrícula [TB_Funcionarios]">
+                    <input type="text" class="form-control" id="funcionarioInput" placeholder="Digite um nome ou matrícula. Origem: [TB_Funcionarios]">
                 </div>
 
                 <div class="d-grid gap-2">
-                    <a class="btn btn-primary" role="button" id="adicionarBtn">Adicionar</a>
+                    <!-- obs: a linha abaixo fazia o modal surgir mesmo adicionando o funcionário. Motivo: "data-bs-toggle..."-->
+                    @* <a class="btn btn-primary" role="button" id="adicionarBtn" data-bs-toggle="modal" data-bs-target="#modalAviso">Adicionar</a> *@
+                    <a class="btn btn-primary" role="button" id="adicionarBtn" data-bs-target="#modalAviso">Adicionar</a>
                 </div>
+
+
+
+                <!-- MODAL "... funcionário já pertence a um Grupo...";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-->
+                <div id="modalAviso" class="modal fade" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title fs-5">Aviso</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
+                                    @* <span aria-hidden="true">&times;</span> <!-- é o botão 'X' de fechar --> *@
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p id="mensagemModal"></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- MODAL ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-->
 
 
 

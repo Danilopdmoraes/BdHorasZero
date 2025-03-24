@@ -20,7 +20,7 @@ namespace BdHorasZero.Models
         public string? NomeGrupo { get; set; } //trocado para nullable, pois é assim que saberemos se o gestor possui grupo ou não (para montar um)
 
 
-        public virtual ICollection<VinculosModel> Vinculos { get; set; }
+        public virtual ICollection<VinculosModel> Vinculos { get; set; } = new List<VinculosModel>();
 
     }
 }

@@ -25,8 +25,8 @@ namespace BdHorasZero.Models
         public string? PerfilFuncionario { get; set; } // adicionado para delegar um perfil com autorização para realizar apontamentos.
 
 
-        public virtual VinculosModel Vinculo { get; set; }
-        public virtual ICollection<OcorrenciasModel> Ocorrencias { get; set; }
+        public virtual ICollection<VinculosModel> Vinculo { get; set; } = new List<VinculosModel>();
+        public virtual ICollection<OcorrenciasModel> Ocorrencias { get; set; } = new List<OcorrenciasModel>();
 
     }
 }
