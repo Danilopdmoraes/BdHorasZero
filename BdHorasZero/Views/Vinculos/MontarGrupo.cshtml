@@ -1,0 +1,80 @@
+﻿@using BdHorasZero.Models.ViewModels;
+@model GestoresFuncionariosVinculosViewModel
+
+@{
+    ViewData["Title"] = "Montagem de Grupo";
+    var gestor = ViewData["Gestor"] as GestoresModel;
+}
+
+
+<div class="d-flex justify-content-center">
+    <div class="col-12 col-sm-11 col-md-10 col-lg-7 col-xl-6">
+        <div class="table-responsive-sm">
+
+            <div class="text-center">
+                <h1 class="display-4">Área do Gestor</h1>
+                <p>Espaço para montar um novo Grupo</p>
+            </div>
+
+            <form>
+
+
+                @* <div class="mb-3"> *@
+                @*     <label for="formGroupExampleInput" class="form-label">Nome do Grupo:</label> *@
+                @*     <input type="text" class="form-control" id="formGroupExampleInput" placeholder="aparecerá o nome atual do Grupo aqui [TB_Gestores]"> *@
+                @* </div> *@
+
+                <p class="fs-4 text-center">Seu Grupo: @gestor.NomeGrupo / Seu ID: @gestor.IdGestor</p>
+
+                <!-- campo adicionado para passar o IdGestor para o site.js, para adicionar à tabela html e gravar no banco -->
+                <input id="IdGestor" value="@gestor.IdGestor" hidden>
+
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Pesquisar Funcionário</label>
+                    <input type="text" class="form-control" id="funcionarioInput" placeholder="Digite um nome ou matrícula [TB_Funcionarios]">
+                </div>
+
+                <div class="d-grid gap-2">
+                    <a class="btn btn-primary" role="button" id="adicionarBtn">Adicionar</a>
+                </div>
+
+
+
+                <table class="table table-hover" id="tabelaSelecionados">
+                    <thead>
+                        <tr>
+                            <th scope="col">IdGestor</th>
+                            <th scope="col">IdFuncionario</th>
+                            <th scope="col">Matrícula</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Saldo</th>
+                            <th scope="col"></th>
+
+                            @* <th scope="col" class="text-end">Saldo</th> *@
+                            <th></th>
+                        </tr>
+                    </thead>
+
+
+
+                    <tbody>
+                        @* tabela gerada pelo código contido em Site.js *@
+                    </tbody>
+
+                </table>
+
+
+
+
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary" id="gravarBtn">Montar Grupo [TB_Vinculos]</button>
+                    <a class="btn btn-danger" role="button" asp-controller="Home" asp-action="Index">Cancelar</a>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

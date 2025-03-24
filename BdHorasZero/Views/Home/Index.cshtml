@@ -1,0 +1,38 @@
+﻿@model GestoresModel;
+
+@{
+	ViewData["Title"] = "Principal";
+}
+@{
+	var gestor = ViewData["Gestor"] as GestoresModel;
+}
+
+<div class="text-center">
+	<h1 class="display-4">Olá</h1>
+	<p><a asp-controller="Gestores" asp-action="CadastrarGrupoGestores">Gestores - primeiro acesso (CadastrarGrupoGestores)</a></p>
+	<p><a asp-controller="Vinculos" asp-action="MontarGrupo">Vinculos - Montagem de Grupos - (MontarGrupo)</a></p>
+	<p><a asp-controller="Gestores" asp-action="Index">Gestores - cadastrado, e Grupo montado - (Index)</a></p>
+	<p><a asp-controller="Gestores" asp-action="EditarGrupoGestores">Gestores - Edição de Grupos - (EditarGrupoGestores)</a></p>
+	<p><a asp-controller="Gestores" asp-action="DetalhesFuncionario">Gestores - Detalhes Individuais do Funcionário - (DetalhesFuncionario)</a></p>
+	<p><a asp-controller="Gestores" asp-action="NovoApontamento">Gestores - Novo Apontamento - (NovoApontamento)</a></p>
+
+
+	<br><hr><br>
+	<p><a asp-controller="Funcionarios" asp-action="CadastroFuncionarios">Funcionários - primeiro acesso</a></p>
+	<p><a asp-controller="Funcionarios" asp-action="Index">Funcionários (cadastrados)</a></p>
+
+	<br><hr><br>
+
+
+</div>
+
+<div>
+	@if (gestor != null)
+	{
+		<p>@gestor.IdGestor</p>
+		<p>@gestor.IdExclusivo</p>
+		<p>@gestor.NomeGestor</p>
+		<p>@gestor.EmailGestor</p>
+		<p>@gestor.NomeGrupo</p>
+	}
+</div>
