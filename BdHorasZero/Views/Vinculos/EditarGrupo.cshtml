@@ -13,10 +13,10 @@
 
             <div class="text-center">
                 <h1 class="display-4">Área do Gestor</h1>
-                <p>Espaço para editar o Grupo criado anteriormente</p>
+                <p>Hub de opções para o Gestor</p>
             </div>
 
-            <form>
+
 
 
                 <!-- diponibilizar um botão para renomear o grupo, talvez utilize Javascript para fazer isso -->
@@ -25,11 +25,11 @@
                 @*     <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" value="@gestor.NomeGrupo"> *@
                 @* </div> *@
 
-                <div class="d-flex justify-content-between">
-                    <div class="text-start fs-3">@gestor.NomeGrupo</div>
-                    <div class="text-end">
-                        <a class="btn btn-primary" role="button" asp-controller="Gestores" asp-action="CadastrarGrupoGestores">Renomear Grupo</a></div>
-                </div>
+                @* <div class="d-flex justify-content-between"> *@
+                @*     <div class="text-start fs-3">@gestor.NomeGrupo</div> *@
+                @*     <div class="text-end"> *@
+                @*         <a class="btn btn-primary" role="button" asp-controller="Gestores" asp-action="CadastrarGrupoGestores">Renomear Grupo</a></div> *@
+                @* </div> *@
 
 
                 @* <p class="fs-4 text-center">Seu Grupo:  / Seu ID: @gestor.IdGestor </p> *@
@@ -37,94 +37,21 @@
                 <!-- campo adicionado para passar o IdGestor para o site.js, para adicionar à tabela html e gravar no banco -->
                 <input id="IdGestor" value="@gestor.IdGestor" hidden>
 
-                <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label">Pesquisar Funcionário</label>
-                    <input type="text" class="form-control" id="funcionarioInput" placeholder="Digite um nome ou matrícula. Origem: [TB_Funcionarios]">
-                </div>
+                @* <div class="mb-3"> *@
+                @*     <label for="formGroupExampleInput" class="form-label">Pesquisar Funcionário</label> *@
+                @*     <input type="text" class="form-control" id="funcionarioInput" placeholder="Digite um nome ou matrícula. Origem: [TB_Funcionarios]"> *@
+                @* </div> *@
 
                 <div class="d-grid gap-2">
                     <!-- obs: a linha abaixo fazia o modal surgir mesmo adicionando o funcionário. Motivo: "data-bs-toggle..."-->
                     @* <a class="btn btn-primary" role="button" id="adicionarBtn" data-bs-toggle="modal" data-bs-target="#modalAviso">Adicionar</a> *@
-                    <a class="btn btn-primary" role="button" id="adicionarBtn" data-bs-target="#modalAviso">Adicionar</a>
+                    @* <a class="btn btn-primary" role="button" id="adicionarBtn" data-bs-target="#modalAviso">Adicionar</a> *@
+                    <a class="btn btn-primary" role="button" id="" asp-controller="Gestores" asp-action="CadastrarGrupoGestores">Renomear Grupo</a>
+                    <a class="btn btn-primary" role="button" id="" asp-controller="Vinculos" asp-action="AdicionarNovoFuncionario">Adicionar Funcionários</a>
+                    <a class="btn btn-danger" role="button" id="" asp-controller="Vinculos" asp-action="RemoverFuncionario">Remover Funcionários</a>
+                    <a class="btn btn-danger" role="button" id="" asp-controller="Home" asp-action="Index">Cancelar</a>
                 </div>
 
-
-
-                <!-- MODAL "... funcionário já pertence a um Grupo...";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-->
-                <div id="modalAviso" class="modal fade" tabindex="-1" role="dialog">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title fs-5">Aviso</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p id="mensagemModal"></p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- MODAL ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-->
-
-
-
-                <table class="table table-hover" id="tabelaSelecionados">
-                    <thead>
-                        <tr>
-                            <th scope="col">IdG</th>
-                            <th scope="col">IdF</th>
-                            <th scope="col">Matrícula</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Saldo</th>
-                            <th scope="col" class="text-end">btnRemover</th>
-                        </tr>
-                    </thead>
-
-
-
-                    <tbody>
-                        @* tabela gerada pelo código contido em Site.js *@
-                        <!-- o conteúdo deste tbody é oriundo de VinculosController.PesquisarFuncionario(), consultado dinamicamente por Site.js -->
-                        <!-- como agora trata-se de EDITAR um grupo, preciso encontrar uma forma de buscar as informações em diferentes tabelas, através de vínculos-->
-
-                        @foreach (var funcionario in Model.Funcionarios)
-                        {
-                            @* var vinculo =  *@
-                            @*     Model.Vinculo?.IdGestor == gestor.IdGestor &&  *@
-                            @*     Model.Vinculo?.IdFuncionario == funcionario.IdFuncionario &&  *@
-                            @*     Model.Vinculo?.DataFim == null; *@
-
-                            @* if (vinculo) *@
-                            @* { *@
-                                <tr>
-                                    <td>@gestor.IdGestor</td>
-                                    <td>@funcionario.IdFuncionario</td>
-                                    <td>@funcionario.MatriculaFuncionario</td>
-                                    <td>@funcionario.NomeFuncionario</td>
-                                    <td>@funcionario.EmailFuncionario</td>
-                                    <td>Saldo aqui</td>
-                                    <td class="text-end"><button type="button" class="btn btn-danger remover">Remover</button></td>
-                                </tr>
-                            @* } *@
-                        }
-                    </tbody>
-
-                </table>
-
-
-
-
-
-                <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-primary" id="atualizarBtn">Atualizar Grupo [TB_Vinculos]</button>
-                    <a class="btn btn-danger" role="button" asp-controller="Home" asp-action="Index">Cancelar</a>
-                </div>
-
-            </form>
 
         </div>
     </div>

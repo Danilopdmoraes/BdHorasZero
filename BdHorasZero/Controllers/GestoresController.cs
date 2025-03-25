@@ -1,10 +1,12 @@
 ﻿using BdHorasZero.Data;
 using BdHorasZero.Filters;
 using BdHorasZero.Models;
+using BdHorasZero.Models.ViewModels;
 using BdHorasZero.Repository;
 using BdHorasZero.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BdHorasZero.Controllers
 {
@@ -29,18 +31,13 @@ namespace BdHorasZero.Controllers
             _gestoresService = gestoresService;
         }
 
-        
-        [Authorize]
-        public async Task<IActionResult> Index()
-        {
-            return View();
-        }
 
         [Authorize]
         public async Task<IActionResult> CadastrarGrupoGestores()
         {
             return View();
         }
+
 
         [HttpPost]
         public async Task <IActionResult> AlterarTbGestores(GestoresModel novoNomeGrupo)
@@ -49,5 +46,16 @@ namespace BdHorasZero.Controllers
             
             return Redirect("~/Vinculos/MontarGrupo");
         }
+
+
+        [Authorize]
+        public async Task<IActionResult> Index()
+        {
+            var viewModel = await _gestoresService.ObterGrupoDoGestorLogado();
+            return View(viewModel);
+        }
+
+
+
     }
 }

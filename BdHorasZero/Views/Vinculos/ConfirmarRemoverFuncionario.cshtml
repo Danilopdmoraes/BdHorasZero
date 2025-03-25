@@ -1,0 +1,24 @@
+﻿@* @model BdHorasZero.Models.ViewModels.GrupoViewModel *@
+
+@model FuncionariosModel
+
+<div class="d-flex justify-content-center">
+    <div class="col-12 col-sm-11 col-md-10 col-lg-7 col-xl-6">
+        <div class="table-responsive-sm">
+
+            <div class="text-center">
+                <h1 class="display-4">Área do Gestor</h1>
+                <p>Espaço para confirmar as remoções</p>
+            </div>
+
+            <div>
+                <p class="fs-4">Deseja mesmo remover o Funcionário @Model.NomeFuncionario?</p>
+            </div>
+
+            <div class="d-grid gap-2">
+                <a class="btn btn-danger" role="button" asp-controller="Vinculos" asp-action="RemoverDoGrupo" asp-route-id="@Model.IdFuncionario">Remover do Grupo</a> <!-- .IdVinculo -->
+                <a class="btn btn-primary" role="button" asp-controller="Vinculos" asp-action="RemoverFuncionario">Cancelar</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,8 +2,8 @@
 @model GestoresFuncionariosVinculosViewModel
 
 @{
-    ViewData["Title"] = "Montagem de Grupo";
     var gestor = ViewData["Gestor"] as GestoresModel;
+    ViewData["Title"] = "Adicionar novos Funcionários ao Grupo";
 }
 
 
@@ -16,15 +16,8 @@
                 <p>Espaço para montar um novo Grupo</p>
             </div>
 
+                <p class="fs-4 text-center">@gestor.NomeGrupo</p>
             <form>
-
-
-                @* <div class="mb-3"> *@
-                @*     <label for="formGroupExampleInput" class="form-label">Nome do Grupo:</label> *@
-                @*     <input type="text" class="form-control" id="formGroupExampleInput" placeholder="aparecerá o nome atual do Grupo aqui [TB_Gestores]"> *@
-                @* </div> *@
-
-                <p class="fs-4 text-center">Seu Grupo: @gestor.NomeGrupo / Seu ID: @gestor.IdGestor</p>
 
                 <!-- campo adicionado para passar o IdGestor para o site.js, para adicionar à tabela html e gravar no banco -->
                 <input id="IdGestor" value="@gestor.IdGestor" hidden>
@@ -35,22 +28,16 @@
                 </div>
 
                 <div class="d-grid gap-2">
-                    <!-- obs: a linha abaixo fazia o modal surgir mesmo adicionando o funcionário. Motivo: "data-bs-toggle..."-->
-                    @* <a class="btn btn-primary" role="button" id="adicionarBtn" data-bs-toggle="modal" data-bs-target="#modalAviso">Adicionar</a> *@
                     <a class="btn btn-primary" role="button" id="adicionarBtn" data-bs-target="#modalAviso">Adicionar</a>
                 </div>
 
-
-
-                <!-- MODAL "... funcionário já pertence a um Grupo...";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-->
+                <!-- ;;;;;;;;;;;;;;;;;;;; MODAL: "...funcionário já pertence a um Grupo..." ;;;;;;;;;;;;;;;;;;;; -->
                 <div id="modalAviso" class="modal fade" tabindex="-1" role="dialog">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title fs-5">Aviso</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
-                                    @* <span aria-hidden="true">&times;</span> <!-- é o botão 'X' de fechar --> *@
-                                </button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                             </div>
                             <div class="modal-body">
                                 <p id="mensagemModal"></p>
@@ -61,8 +48,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- MODAL ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-->
-
+                <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; MODAL ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
 
 
                 <table class="table table-hover" id="tabelaSelecionados">
@@ -77,23 +63,15 @@
                             <th scope="col">btnRemover</th>
                         </tr>
                     </thead>
-
-
-
                     <tbody>
                         @* tabela gerada pelo código contido em Site.js *@
                         <!-- o conteúdo deste tbody é oriundo de VinculosController.PesquisarFuncionario(), consultado dinamicamente por Site.js -->
                     </tbody>
-
                 </table>
 
-
-
-
-
                 <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-primary" id="gravarBtn">Montar Grupo [TB_Vinculos]</button>
-                    <a class="btn btn-danger" role="button" asp-controller="Home" asp-action="Index">Cancelar</a>
+                    <button type="submit" class="btn btn-primary" id="gravarBtn">Salvar alterações</button>
+                    <a class="btn btn-danger" role="button" asp-controller="Vinculos" asp-action="EditarGrupo">Cancelar</a>
                 </div>
 
             </form>

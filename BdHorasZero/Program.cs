@@ -34,13 +34,8 @@ builder.Services.AddSession(options =>
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddScoped<GestoresService>();
-
 builder.Services.AddScoped<IGestoresRepository, GestoresRepository>();
-
-// ATENÇÃO: isso aqui pode quebrar a aplicação, kkk:
-// edit: ufa, deu tudo certo
 builder.Services.AddScoped<GestorLogadoFilter>();
-
 
 var app = builder.Build();
 

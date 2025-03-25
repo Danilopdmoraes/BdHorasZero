@@ -2,7 +2,7 @@
 @model GestoresFuncionariosVinculosViewModel
 
 @{
-    ViewData["Title"] = "Montagem de Grupo";
+    ViewData["Title"] = "Edição de Grupo";
     var gestor = ViewData["Gestor"] as GestoresModel;
 }
 
@@ -13,18 +13,26 @@
 
             <div class="text-center">
                 <h1 class="display-4">Área do Gestor</h1>
-                <p>Espaço para montar um novo Grupo</p>
+                <p>Espaço para editar o Grupo criado anteriormente</p>
             </div>
 
             <form>
 
 
+                <!-- diponibilizar um botão para renomear o grupo, talvez utilize Javascript para fazer isso -->
                 @* <div class="mb-3"> *@
                 @*     <label for="formGroupExampleInput" class="form-label">Nome do Grupo:</label> *@
-                @*     <input type="text" class="form-control" id="formGroupExampleInput" placeholder="aparecerá o nome atual do Grupo aqui [TB_Gestores]"> *@
+                @*     <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" value="@gestor.NomeGrupo"> *@
                 @* </div> *@
 
-                <p class="fs-4 text-center">Seu Grupo: @gestor.NomeGrupo / Seu ID: @gestor.IdGestor</p>
+                <div class="d-flex justify-content-between">
+                    <div class="text-start fs-3">@gestor.NomeGrupo</div>
+                    <div class="text-end">
+                        <a class="btn btn-primary" role="button" asp-controller="Gestores" asp-action="CadastrarGrupoGestores">Renomear Grupo</a></div>
+                </div>
+
+
+                @* <p class="fs-4 text-center">Seu Grupo:  / Seu ID: @gestor.IdGestor </p> *@
 
                 <!-- campo adicionado para passar o IdGestor para o site.js, para adicionar à tabela html e gravar no banco -->
                 <input id="IdGestor" value="@gestor.IdGestor" hidden>
@@ -48,9 +56,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title fs-5">Aviso</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
-                                    @* <span aria-hidden="true">&times;</span> <!-- é o botão 'X' de fechar --> *@
-                                </button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                             </div>
                             <div class="modal-body">
                                 <p id="mensagemModal"></p>
@@ -74,7 +80,7 @@
                             <th scope="col">Nome</th>
                             <th scope="col">Email</th>
                             <th scope="col">Saldo</th>
-                            <th scope="col">btnRemover</th>
+                            <th scope="col" class="text-end">btnRemover</th>
                         </tr>
                     </thead>
 
@@ -83,6 +89,28 @@
                     <tbody>
                         @* tabela gerada pelo código contido em Site.js *@
                         <!-- o conteúdo deste tbody é oriundo de VinculosController.PesquisarFuncionario(), consultado dinamicamente por Site.js -->
+                        <!-- como agora trata-se de EDITAR um grupo, preciso encontrar uma forma de buscar as informações em diferentes tabelas, através de vínculos-->
+
+                        @foreach (var funcionario in Model.Funcionarios)
+                        {
+                            @* var vinculo =  *@
+                            @*     Model.Vinculo?.IdGestor == gestor.IdGestor &&  *@
+                            @*     Model.Vinculo?.IdFuncionario == funcionario.IdFuncionario &&  *@
+                            @*     Model.Vinculo?.DataFim == null; *@
+
+                            @* if (vinculo) *@
+                            @* { *@
+                                <tr>
+                                    <td>@gestor.IdGestor</td>
+                                    <td>@funcionario.IdFuncionario</td>
+                                    <td>@funcionario.MatriculaFuncionario</td>
+                                    <td>@funcionario.NomeFuncionario</td>
+                                    <td>@funcionario.EmailFuncionario</td>
+                                    <td>Saldo aqui</td>
+                                    <td class="text-end"><button type="button" class="btn btn-danger remover">Remover</button></td>
+                                </tr>
+                            @* } *@
+                        }
                     </tbody>
 
                 </table>
@@ -92,7 +120,7 @@
 
 
                 <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-primary" id="gravarBtn">Montar Grupo [TB_Vinculos]</button>
+                    <button type="submit" class="btn btn-primary" id="atualizarBtn">Atualizar Grupo [TB_Vinculos]</button>
                     <a class="btn btn-danger" role="button" asp-controller="Home" asp-action="Index">Cancelar</a>
                 </div>
 

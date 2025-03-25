@@ -3,6 +3,7 @@ using BdHorasZero.Filters;
 using BdHorasZero.Models;
 using BdHorasZero.Models.ViewModels;
 using BdHorasZero.Services;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -67,41 +68,17 @@ namespace BdHorasZero.Controllers
 
 
 
-        //[Authorize]
-        //public async Task<IActionResult> EditarGrupo()
-        //{
-        //    return View();
-        //}
-
         [Authorize]
         public async Task<IActionResult> EditarGrupo()
         {
-            // id do gestor logado:
-            var gestorLogado = ViewData["Gestor"] as GestoresModel;
-            var idGestor = gestorLogado.IdGestor;
+            return View();
+        }
 
-            // lista funcionários e gestores:
-            var gestores = await _context.TB_Gestores.ToListAsync();
-            var funcionarios = await _context.TB_Funcionarios.ToListAsync();
-
-            // faz a busca:
-            var vinculos = await _context.TB_Vinculos
-                .Where(v => v.IdGestor == idGestor && v.DataFim == null)
-                .ToListAsync();
-
-            var funcionariosVinculados = funcionarios
-                .Where(f => vinculos
-                    .Any(v => v.IdFuncionario == f.IdFuncionario))
-                    .ToList();
-
-            var viewModel = new GestoresFuncionariosVinculosViewModel
-            {
-                Gestores = gestores,
-                Funcionarios = funcionariosVinculados,
-                Vinculo = new VinculosModel()
-            };
-
-            return View(viewModel);
+        [Authorize]
+        public async Task<IActionResult> EditarGrupoSinglePage() // obs. a View relacionada não está em uso.
+        {
+            var GrupoGestorViewModel = await _gestoresService.ObterGrupoDoGestorLogado();
+            return View(GrupoGestorViewModel);
         }
 
 
@@ -142,6 +119,75 @@ namespace BdHorasZero.Controllers
             }
 
             return Json(new {success = true});
+        }
+
+        [Authorize]
+        public IActionResult AdicionarNovoFuncionario()
+        {
+            return View();
+        }
+
+
+
+
+
+
+
+        [Authorize]
+        public async Task<IActionResult> RemoverFuncionario()
+        {
+            //AQUI ESTAVA FUNCIONANDO:
+            //var viewModel = await _gestoresService.ObterGrupoDoGestorLogado();
+            //return View(viewModel);
+            ///////////////////////////
+
+            var gestorLogado = _gestoresService.ObterGestorDaSessao().IdGestor;
+            var vinculos = _context.TB_Vinculos
+                .Where(v => v.IdGestor == gestorLogado && v.DataFim == null)
+                .ToList();
+
+            var grupo = from v in vinculos
+                        join f in _context.TB_Funcionarios on v.IdFuncionario equals f.IdFuncionario
+                        select new GrupoViewModel
+                        {
+                            IdFuncionario = f.IdFuncionario,
+                            NomeFuncionario = f.NomeFuncionario,
+                            EmailFuncionario = f.EmailFuncionario,
+                            MatriculaFuncionario = f.MatriculaFuncionario
+                            //MatriculaFuncionario = v.IdVinculo
+
+                            //Saldo = f.saldo, // ...em preparação...
+                        };
+                        
+
+            return View(grupo.ToList());
+        }
+
+
+
+
+
+
+
+
+
+        [Authorize]
+        public IActionResult ConfirmarRemoverFuncionario(int id)
+        {
+            FuncionariosModel funcionario = _gestoresService.ListarPorId(id);
+            return View(funcionario);
+        }
+
+
+
+
+
+
+
+        public IActionResult RemoverDoGrupo(int id)
+        {
+            _gestoresService.Remover(id);
+            return Redirect("~/Gestores/Index");
         }
     }
 }

@@ -1,11 +1,15 @@
-﻿@{
+﻿@using BdHorasZero.Models.ViewModels;
+@model GestoresFuncionariosVinculosViewModel
+
+@{
     ViewData["Title"] = "Gestores";
     var gestor = ViewData["Gestor"] as GestoresModel;
 }
 
 <div class="text-center">
     <h1 class="display-4">Área do Gestor</h1>
-    <p>Exibe para Gestores já cadastrados no banco da aplicação. <br />Requisitos: Gestor cadastrado no banco da aplicação e Gestor com o Grupo montado</p>
+    <p>Exibe para Gestores já cadastrados no banco da aplicação. 
+        <br />Requisitos: Gestor cadastrado no banco da aplicação e Gestor com o Grupo montado</p>
 </div>
 
 
@@ -18,37 +22,29 @@
                 <p class="fs-3">@gestor.NomeGrupo</p>
             </div>
 
-            @* <div> *@
-            @*     <p>ID: @ViewBag.UserId</p> *@
-            @* </div> *@
-
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th scope="col">Funcionário</th>
-                        <th scope="col">Saldo</th>
+                        <th scope="col" class="text-end">Saldo</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Silvio Santos</td>
-                        <td>07:00</td>
-                    </tr>
-                    <tr>
-                        <td>Fausto Silva</td>
-                        <td>-12:00</td>
-                    </tr>
-                    <tr>
-                        <td>Sérgio Malandro</td>
-                        <td>03:00</td>
-                    </tr>
+                    @* tabela gerada pelo código contido em Site.js *@
+                    <!-- o conteúdo deste tbody é oriundo de VinculosController.PesquisarFuncionario(), consultado dinamicamente por Site.js -->
+                    @foreach (var funcionario in Model.Funcionarios)
+                    {
+                        <tr>
+                            <td>@funcionario.NomeFuncionario</td>
+                            <td class="text-end">Saldo aqui</td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
 
         <div class="d-grid gap-2">
-            <a class="btn btn-primary" role="button" asp-controller="Gestores" asp-action="EditarGrupoGestores">Editar Grupo</a>
-            @* <a class="btn btn-danger" role="button" asp-controller="Home" asp-action="Index">Cancelar</a> *@
+            <a class="btn btn-primary" role="button" asp-controller="Vinculos" asp-action="EditarGrupo">Editar Grupo</a>
         </div>
     </div>
 </div>

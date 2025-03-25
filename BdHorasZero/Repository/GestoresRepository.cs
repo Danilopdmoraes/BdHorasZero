@@ -1,6 +1,8 @@
 ﻿using BdHorasZero.Data;
 using BdHorasZero.Models;
+using BdHorasZero.Models.ViewModels;
 using BdHorasZero.Services;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace BdHorasZero.Repository
 {
@@ -29,5 +31,10 @@ namespace BdHorasZero.Repository
 
             return gestor;
         }
+
+        //public List<VinculosModel> ListarGrupo()
+        //{
+        //    var grupoListado = _context.TB_Vinculos.ToList();
+        //}
     }
 }

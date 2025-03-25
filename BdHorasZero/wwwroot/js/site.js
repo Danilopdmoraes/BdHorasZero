@@ -67,8 +67,6 @@ $(document).ready(function () {
     });
 
 
-
-
     // se o funcionário possui vínculo, exibe o modal. Se não possui, então adiciona à <table>.
     $("#adicionarBtn").click(function () {
         var idgestor = $("#IdGestor").val();
@@ -119,15 +117,11 @@ $(document).ready(function () {
         }
     });
 
+
     // limpa o input após fechar o modal
     $("#modalAviso").on("hidden.bs.modal", function () {
         $("#funcionarioInput").val("");
     });
-
-
-
-
-
 
 
     // remove funcionário da tabela com delegação de eventos, considerando a class=".btn-danger" (e não o id="", que é default):
@@ -139,10 +133,18 @@ $(document).ready(function () {
 
 
     // Gravar selecionados
+    // usado em:
+    // Vinculos/MontarGrupo // o primeiro grupo
+    // Vinculos/AdicionarNovoFuncionario // novas adições
+    // Talvez seja melhor deixar tudo em um só lugar, exemplo: "Vinculos/AdicionarFuncionarios"
+    // e remover as redundâncias
+
     $("#gravarBtn").click(function () {
 
         var selecionados = [];
-        var timestamp = new Date().toISOString(); // Captura o timestamp no formato ISO
+        var timestamp = new Date().toISOString(); // Captura o timestamp no formato ISO // OBS: a hora está ERRADA no banco.
+        //var timestamp = new Date().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" });
+        //var timestamp = new Date().getTime(- 3 * 60 * 60 * 1000).toISOString();
 
         $("#tabelaSelecionados tbody tr").each(function () {
 
@@ -165,6 +167,7 @@ $(document).ready(function () {
             data: JSON.stringify(selecionados),
             success: function () {
                 alert("Dados gravados com sucesso!");
+                location.reload();
             }
         });
 
@@ -172,7 +175,6 @@ $(document).ready(function () {
 
 
     // script para Vinculos/EditarGrupo
-    //$(document).ready(function () {
 
     $("#atualizarBtn").click(function () {
         let vinculos = [];
@@ -206,7 +208,6 @@ $(document).ready(function () {
             }
         });
     });
-    //}
 
 
 

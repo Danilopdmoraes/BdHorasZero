@@ -1,0 +1,99 @@
+﻿@using BdHorasZero.Models.ViewModels;
+@* @model GestoresFuncionariosVinculosViewModel *@
+@model IEnumerable<GrupoViewModel>
+
+@{
+    ViewData["Title"] = "Remover Funcionários";
+    var gestor = ViewData["Gestor"] as GestoresModel;
+}
+
+
+<div class="d-flex justify-content-center">
+    <div class="col-12 col-sm-11 col-md-10 col-lg-7 col-xl-6">
+        <div class="table-responsive-sm">
+
+            <div class="text-center">
+                <h1 class="display-4">Área do Gestor</h1>
+                <p>Espaço para remover os funcionários do Grupo</p>
+            </div>
+
+            <form>
+
+                <div class="d-flex justify-content-between">
+                    <div class="text-start fs-3">@gestor.NomeGrupo</div>
+                </div>
+
+                <!-- campo adicionado para passar o IdGestor para o site.js, para adicionar à tabela html e gravar no banco -->
+                <input id="IdGestor" value="@gestor.IdGestor" hidden>
+
+                <table class="table table-hover" id="">
+                    <thead>
+                        <tr>
+                            <th scope="col">IdG</th>
+                            <th scope="col">IdF</th>
+                            <th scope="col">Matrícula</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Saldo</th>
+                            <th scope="col" class="text-end">btnRemover</th>
+                        </tr>
+                    </thead>
+
+
+                    @* ISTO AQUI FUNCIONOU MUITO BEM, MAS VOU TENTAR OUTRA ABORDAGEM: *@
+                    @* <tbody> *@
+                        @* tabela gerada pelo código contido em Site.js *@
+                        <!-- o conteúdo deste tbody é oriundo de VinculosController.PesquisarFuncionario(), consultado dinamicamente por Site.js -->
+                        @* @foreach (var funcionario in Model.Funcionarios) *@
+                        @* { *@
+                            @* <tr> *@
+                                @* <td>@gestor.IdGestor</td> *@
+                                @* <td>@funcionario.IdFuncionario</td> *@
+                                @* <td>@funcionario.MatriculaFuncionario</td> *@
+                                @* <td>@funcionario.NomeFuncionario</td> *@
+                                @* <td>@funcionario.EmailFuncionario</td> *@
+                                @* <td>Saldo aqui</td> *@
+                                @* <td class="text-end"><button type="button" class="btn btn-danger remover">Remover</button></td> *@
+                    @*         </tr> *@
+                    @*     } *@
+                    @* </tbody> *@
+
+
+                    <!-- a tbody abaixo obedece uma abordagem diferente da tbody de cima -->
+                    <!-- aqui, a lógica vinda da Controller VinculosController é semelhante às queryes SQL -->
+                    <!-- portanto, acredito que aqui é mais simples desenrolar -->
+                    <tbody>
+                        @* tabela gerada pelo código contido em Site.js *@
+                        <!-- o conteúdo deste tbody é oriundo de VinculosController.PesquisarFuncionario(), consultado dinamicamente por Site.js -->
+                        @foreach (var funcionario in Model)
+                        {
+                            <tr>
+                                <td>@gestor.IdGestor</td>
+                                <td>@funcionario.IdFuncionario</td>
+                                <td>@funcionario.MatriculaFuncionario</td>
+                                <td>@funcionario.NomeFuncionario</td>
+                                <td>@funcionario.EmailFuncionario</td>
+                                <td>Saldo aqui</td>
+                                <td class="text-end">
+                                    @* <a role="button" class="btn btn-danger remover" asp-route-id="@funcionario.IdFuncionario" asp-controller="Vinculos" asp-action="ConfirmarRemoverFuncionario">Remover</a></td> *@
+                                    <a role="button" class="btn btn-danger remover" asp-route-id="@funcionario.IdFuncionario" asp-controller="Vinculos" asp-action="ConfirmarRemoverFuncionario">Remover</a></td>
+                            </tr>
+                        }
+                    </tbody>
+
+
+
+
+
+
+                </table>
+
+                <div class="d-grid gap-2">
+                    <a class="btn btn-primary" role="button" asp-controller="Vinculos" asp-action="EditarGrupo">Cancelar</a>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
