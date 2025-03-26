@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+ap/dBN/P+FIksu+VJ2fvD3yjR3eP8tt57NYrwkQ5dk=",
+  "Hash": "3e5QwcpeC3uHs5yQzGZi9enZOgmgwKCeaYL44UNk5gk=",
   "Source": "BdHorasZero",
   "BasePath": "_content/BdHorasZero",
   "Mode": "Default",
@@ -1375,8 +1375,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "pes38li7od",
-      "Integrity": "kQ7uKOb6KoFHZWtRYi1MXmwmNccix4PzA/FDki3x304=",
+      "Fingerprint": "z4gc20cyrn",
+      "Integrity": "TaGzyacXouybRxL7FXYcu0ANeA1+F/wgM7Q3Km0eWFU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
@@ -2603,7 +2603,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 26 Mar 2025 17:53:12 GMT"
+          "Value": "Wed, 26 Mar 2025 18:21:43 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2648,7 +2648,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 26 Mar 2025 17:53:12 GMT"
+          "Value": "Wed, 26 Mar 2025 18:21:43 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2693,7 +2693,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 26 Mar 2025 17:53:12 GMT"
+          "Value": "Wed, 26 Mar 2025 18:21:43 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2730,7 +2730,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 26 Mar 2025 17:53:12 GMT"
+          "Value": "Wed, 26 Mar 2025 18:21:43 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5139,7 +5139,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "7533"
+          "Value": "7558"
         },
         {
           "Name": "Content-Type",
@@ -5147,11 +5147,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"kQ7uKOb6KoFHZWtRYi1MXmwmNccix4PzA/FDki3x304=\""
+          "Value": "\"TaGzyacXouybRxL7FXYcu0ANeA1+F/wgM7Q3Km0eWFU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 26 Mar 2025 17:49:59 GMT"
+          "Value": "Wed, 26 Mar 2025 18:51:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5161,12 +5161,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-kQ7uKOb6KoFHZWtRYi1MXmwmNccix4PzA/FDki3x304="
+          "Value": "sha256-TaGzyacXouybRxL7FXYcu0ANeA1+F/wgM7Q3Km0eWFU="
         }
       ]
     },
     {
-      "Route": "js/site.pes38li7od.js",
+      "Route": "js/site.z4gc20cyrn.js",
       "AssetFile": "G:\\PROJETOS\\BdHorasZero\\BdHorasZero\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -5176,7 +5176,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "7533"
+          "Value": "7558"
         },
         {
           "Name": "Content-Type",
@@ -5184,11 +5184,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"kQ7uKOb6KoFHZWtRYi1MXmwmNccix4PzA/FDki3x304=\""
+          "Value": "\"TaGzyacXouybRxL7FXYcu0ANeA1+F/wgM7Q3Km0eWFU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 26 Mar 2025 17:49:59 GMT"
+          "Value": "Wed, 26 Mar 2025 18:51:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5198,7 +5198,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "pes38li7od"
+          "Value": "z4gc20cyrn"
         },
         {
           "Name": "label",
@@ -5206,7 +5206,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-kQ7uKOb6KoFHZWtRYi1MXmwmNccix4PzA/FDki3x304="
+          "Value": "sha256-TaGzyacXouybRxL7FXYcu0ANeA1+F/wgM7Q3Km0eWFU="
         }
       ]
     },

@@ -46,7 +46,8 @@ namespace BdHorasZero.Repository
             if (vinculo == null)
                 throw new Exception("Houve um erro na remoção do Funcionário!");
 
-            vinculo.DataFim = DateTime.UtcNow;
+            //vinculo.DataFim = DateTime.UtcNow; // UTC default
+            vinculo.DataFim = DateTime.UtcNow.AddHours(-3); // editado para fazer timestamp no horário de Brasília
 
             _context.TB_Vinculos.Update(vinculo);
             _context.SaveChanges();

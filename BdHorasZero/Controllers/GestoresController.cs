@@ -52,6 +52,12 @@ namespace BdHorasZero.Controllers
         }
 
 
+        public IActionResult RenomearGrupo()
+        {
+            return View();
+        }
+
+
 
     }
 }

@@ -11,14 +11,10 @@ public class ApplicationDbContext : IdentityDbContext
     {
     }
 
-    // adicionados manualmente:
-    public DbSet<GestoresModel> TB_Gestores { get; set; }
-    public DbSet<FuncionariosModel> TB_Funcionarios { get; set; }
-    public DbSet<VinculosModel> TB_Vinculos { get; set; }
-    public DbSet<OcorrenciasModel> TB_Ocorrencias { get; set; }
-
     //protected override void OnModelCreating(ModelBuilder modelBuilder)
     //{
+    //    base.OnModelCreating(modelBuilder);
+
     //    modelBuilder.Entity<VinculosModel>()
     //        .Property(v => v.DataInicio)
     //        .HasConversion(
@@ -31,5 +27,12 @@ public class ApplicationDbContext : IdentityDbContext
     //            v => v.HasValue ? v.Value.ToUniversalTime() : (DateTime?)null,
     //            v => v.HasValue ? v.Value.AddHours(-3) : (DateTime?)null);
     //}
+
+    // adicionados manualmente:
+    public DbSet<GestoresModel> TB_Gestores { get; set; }
+    public DbSet<FuncionariosModel> TB_Funcionarios { get; set; }
+    public DbSet<VinculosModel> TB_Vinculos { get; set; }
+    public DbSet<OcorrenciasModel> TB_Ocorrencias { get; set; }
+
 
 }

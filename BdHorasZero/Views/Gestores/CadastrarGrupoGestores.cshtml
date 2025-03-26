@@ -1,60 +1,67 @@
 ﻿@model GestoresModel
 @{
-    ViewData["Title"] = "Página de Cadastro para Gestores";
+	ViewData["Title"] = "Página de Cadastro para Gestores";
 }
 @{
-    var gestor = ViewData["Gestor"] as GestoresModel;
+	var gestor = ViewData["Gestor"] as GestoresModel;
 }
 
 
 
 <div class="text-center">
-    <h1 class="display-4">Área do Gestor</h1>
-    <p>Página de Cadastro para o primeiro acesso</p>
-    <p><strong>Objetivo: </strong>definir um nome para o Grupo</p>
-    <p>Provavelmente informações como nome e email virão da autenticação</p>
+	<h1 class="display-4">Área do Gestor</h1>
+	<p>Página de Cadastro para o primeiro acesso</p>
+	<p><strong>Objetivo: </strong>definir um nome para o Grupo</p>
+	<p>Provavelmente informações como nome e email virão da autenticação</p>
 </div>
 
 <div class="d-flex justify-content-center">
-    <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
-        <div class="table-responsive-sm">
+	<div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+		<div class="table-responsive-sm">
 
-            <form asp-controller="Gestores" asp-action="AlterarTbGestores" method="post">
+			<form asp-controller="Gestores" asp-action="AlterarTbGestores" method="post">
 
-                @* <div class="mb-3"> *@
-                @*     <label for="formGroupExampleInput" class="form-label">Digite seu nome:</label> *@
-                @*     <input type="text" asp-for="NomeGestor" class="form-control" id="formGroupExampleInput" placeholder=""> *@
-                @* </div> *@
-
-
-                @* <div class="mb-3"> *@
-                @*     <label for="inputEmail3" class="form-label">Digite seu e-mail:</label> *@
-                @*     <input type="email" asp-for="EmailGestor" class="form-control" id="inputEmail3" placeholder="exemplo@fieb.edu.br"> *@
-                @* </div> *@
-
-                <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label">Nome do seu Grupo:</label>
-                    <input type="text" asp-for="NomeGrupo" class="form-control" id="formGroupExampleInput" placeholder="exemplo: ITB FIEB Alphaville - Financeiro" value="@gestor.NomeGrupo">
-                </div>
+				@* <div class="mb-3"> *@
+				@*     <label for="formGroupExampleInput" class="form-label">Digite seu nome:</label> *@
+				@*     <input type="text" asp-for="NomeGestor" class="form-control" id="formGroupExampleInput" placeholder=""> *@
+				@* </div> *@
 
 
-                <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-primary">Alterar</button>
-                    <a class="btn btn-danger" role="button" asp-controller="Home" asp-action="Index">Cancelar</a>
-                </div>
+				@* <div class="mb-3"> *@
+				@*     <label for="inputEmail3" class="form-label">Digite seu e-mail:</label> *@
+				@*     <input type="email" asp-for="EmailGestor" class="form-control" id="inputEmail3" placeholder="exemplo@fieb.edu.br"> *@
+				@* </div> *@
 
-            </form>
+				<div class="mb-3">
+					<label for="formGroupExampleInput" class="form-label">Nome do seu Grupo:</label>
+					<input type="text" asp-for="NomeGrupo" class="form-control" id="formGroupExampleInput" placeholder="exemplo: ITB FIEB Alphaville - Financeiro" value="@gestor.NomeGrupo">
+				</div>
 
-            <hr>
 
-            <div>
-                <p><strong>Id: </strong>@gestor.IdGestor</p>
-                <p><strong>Nome: </strong>@gestor.NomeGestor</p>
-                <p><strong>Email: </strong>@gestor.EmailGestor</p>
-                <p><strong>IdExclusivo: </strong>@gestor.IdExclusivo</p>
-                <p><strong>Grupo: </strong>@gestor.NomeGrupo</p>
-            </div>
+				<div class="d-grid gap-2">
+					<button type="submit" class="btn btn-primary">Alterar</button>
+					<a></a>
+					@* <a class="btn btn-danger" role="button" asp-controller="Home" asp-action="Index">Cancelar</a> *@
+				</div>
 
-        </div>
-    </div>
+			</form>
+
+			<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+				<div class="d-grid gap-2">
+					<button type="submit" class="btn btn-danger">Cancelar</button>
+				</div>
+			</form>
+
+			<hr>
+
+			<div>
+				<p><strong>Id: </strong>@gestor.IdGestor</p>
+				<p><strong>Nome: </strong>@gestor.NomeGestor</p>
+				<p><strong>Email: </strong>@gestor.EmailGestor</p>
+				<p><strong>IdExclusivo: </strong>@gestor.IdExclusivo</p>
+				<p><strong>Grupo: </strong>@gestor.NomeGrupo</p>
+			</div>
+
+		</div>
+	</div>
 </div>

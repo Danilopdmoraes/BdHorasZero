@@ -52,7 +52,7 @@ namespace BdHorasZero.Data.Migrations
 
                     b.HasKey("IdFuncionario");
 
-                    b.ToTable("TB_Funcionarios");
+                    b.ToTable("TB_Funcionarios", (string)null);
                 });
 
             modelBuilder.Entity("BdHorasZero.Models.GestoresModel", b =>
@@ -79,7 +79,7 @@ namespace BdHorasZero.Data.Migrations
 
                     b.HasKey("IdGestor");
 
-                    b.ToTable("TB_Gestores");
+                    b.ToTable("TB_Gestores", (string)null);
                 });
 
             modelBuilder.Entity("BdHorasZero.Models.OcorrenciasModel", b =>
@@ -116,7 +116,7 @@ namespace BdHorasZero.Data.Migrations
 
                     b.HasIndex("IdGestor");
 
-                    b.ToTable("TB_Ocorrencias");
+                    b.ToTable("TB_Ocorrencias", (string)null);
                 });
 
             modelBuilder.Entity("BdHorasZero.Models.VinculosModel", b =>
@@ -145,7 +145,7 @@ namespace BdHorasZero.Data.Migrations
 
                     b.HasIndex("IdGestor");
 
-                    b.ToTable("TB_Vinculos");
+                    b.ToTable("TB_Vinculos", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -142,8 +142,11 @@ $(document).ready(function () {
     $("#gravarBtn").click(function () {
 
         var selecionados = [];
-        var timestamp = new Date().toISOString();
-        //var timestamp = new Date(new Date().getTime() - 3 * 60 * 60 * 1000).toISOString(); // usar para armazenar em UTC -3 (horário de Brasília)
+        //var timestamp = new Date().toISOString(); // UTC default
+
+        var now = new Date();
+        now.setHours(now.getHours() - 3); // ajusta para o horário de Brasília
+        var timestamp = now.toISOString();
 
 
         $("#tabelaSelecionados tbody tr").each(function () {
