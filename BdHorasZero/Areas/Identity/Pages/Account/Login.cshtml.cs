@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using BdHorasZero.Data;
+using BdHorasZero.Services;
 
 namespace BdHorasZero.Areas.Identity.Pages.Account
 {
@@ -21,11 +23,23 @@ namespace BdHorasZero.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly ApplicationDbContext _context;
+        private readonly GestoresService _gestoresService;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(
+            SignInManager<IdentityUser> signInManager,
+            ILogger<LoginModel> logger,
+            ApplicationDbContext context,
+            GestoresService gestoresService,
+            UserManager<IdentityUser> userManager
+            )
         {
             _signInManager = signInManager;
             _logger = logger;
+            _context = context;
+            _gestoresService = gestoresService;
+            _userManager = userManager;
         }
 
         /// <summary>
@@ -115,7 +129,25 @@ namespace BdHorasZero.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+
+                    var userId = await _userManager.FindByEmailAsync(Input.Email);
+                    var possuiGrupo = await _gestoresService.ObterPossuiGrupoAsync(userId.Id);
+
+                    if (string.IsNullOrEmpty(possuiGrupo))
+                    {
+                        return LocalRedirect(Url.Content("~/Gestores/CadastrarGrupoGestores"));
+                    }
+                    else
+                    {
+                        return LocalRedirect(Url.Content("~/Gestores/Index"));
+                    }
+
+
+                        //return LocalRedirect(returnUrl);
+
+
+
+
                 }
                 if (result.RequiresTwoFactor)
                 {

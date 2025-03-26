@@ -142,9 +142,9 @@ $(document).ready(function () {
     $("#gravarBtn").click(function () {
 
         var selecionados = [];
-        var timestamp = new Date().toISOString(); // Captura o timestamp no formato ISO // OBS: a hora está ERRADA no banco.
-        //var timestamp = new Date().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" });
-        //var timestamp = new Date().getTime(- 3 * 60 * 60 * 1000).toISOString();
+        var timestamp = new Date().toISOString();
+        //var timestamp = new Date(new Date().getTime() - 3 * 60 * 60 * 1000).toISOString(); // usar para armazenar em UTC -3 (horário de Brasília)
+
 
         $("#tabelaSelecionados tbody tr").each(function () {
 

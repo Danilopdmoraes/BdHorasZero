@@ -2,6 +2,7 @@
 using BdHorasZero.Filters;
 using BdHorasZero.Models;
 using BdHorasZero.Models.ViewModels;
+using BdHorasZero.Repository;
 using BdHorasZero.Services;
 
 using Microsoft.AspNetCore.Authorization;
@@ -15,19 +16,21 @@ namespace BdHorasZero.Controllers
 
     public class VinculosController : Controller
     {
-        public readonly GestoresService _gestoresService;
         public readonly ApplicationDbContext _context;
+        public readonly GestoresService _gestoresService;
+        public readonly IGestoresRepository _gestoresRepository;
 
-        public VinculosController(GestoresService gestoresService, ApplicationDbContext context) 
+        public VinculosController(ApplicationDbContext context, GestoresService gestoresService, IGestoresRepository gestoresRepository) 
         {
-            _gestoresService = gestoresService;
             _context = context;
+            _gestoresService = gestoresService;
+            _gestoresRepository = gestoresRepository;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
 
         [Authorize]
         public async Task <IActionResult> MontarGrupo() // View MontarGrupo
@@ -74,52 +77,52 @@ namespace BdHorasZero.Controllers
             return View();
         }
 
-        [Authorize]
-        public async Task<IActionResult> EditarGrupoSinglePage() // obs. a View relacionada não está em uso.
-        {
-            var GrupoGestorViewModel = await _gestoresService.ObterGrupoDoGestorLogado();
-            return View(GrupoGestorViewModel);
-        }
+        //[Authorize]
+        //public async Task<IActionResult> EditarGrupoSinglePage() // obs. a View relacionada não está em uso.
+        //{
+        //    var GrupoGestorViewModel = await _gestoresService.ObterGrupoDoGestorLogado();
+        //    return View(GrupoGestorViewModel);
+        //}
 
 
-        [HttpPost]
-        public IActionResult AtualizarGrupo([FromBody] List<VinculosModel> grupoSelecionado) // traz a <table>
-        {
-            foreach (var vinculo in grupoSelecionado)
-            {
-                var existingVinculo = 
-                    _context.TB_Vinculos
-                    .FirstOrDefault(v => v.IdVinculo == vinculo.IdVinculo); // aqui provavelmente está errado (ou não). O que eu quero saber é se os funcionários do grupoSelecionado já possuem vínculo com o gestor logado
-                                                                            // e aqui destaca a linha em TB_Vinculos que é igual à linha que veio por parâmetro
-                if (existingVinculo != null) // Na verdade parece mais com "vínculo que veio da <table>"
-                {
+        //[HttpPost]
+        //public IActionResult AtualizarGrupo([FromBody] List<VinculosModel> grupoSelecionado) // traz a <table>
+        //{
+        //    foreach (var vinculo in grupoSelecionado)
+        //    {
+        //        var existingVinculo = 
+        //            _context.TB_Vinculos
+        //            .FirstOrDefault(v => v.IdVinculo == vinculo.IdVinculo); // aqui provavelmente está errado (ou não). O que eu quero saber é se os funcionários do grupoSelecionado já possuem vínculo com o gestor logado
+        //                                                                    // e aqui destaca a linha em TB_Vinculos que é igual à linha que veio por parâmetro
+        //        if (existingVinculo != null) // Na verdade parece mais com "vínculo que veio da <table>"
+        //        {
 
 
-                    if (vinculo.DataFim != null) // ...e se DataFim tiver timestamp... significa que o funcionário está livre, pode criar o vínculo
-                    {
-                        existingVinculo.IdGestor = vinculo.IdGestor;
-                        existingVinculo.IdFuncionario = vinculo.IdFuncionario;
-                        existingVinculo.DataInicio = DateTime.Now; // aqui também deve estar errado. Vai gravar timestamp em DataFim??
-                        _context.TB_Vinculos.Update(existingVinculo);
-                    }
-                }
+        //            if (vinculo.DataFim != null) // ...e se DataFim tiver timestamp... significa que o funcionário está livre, pode criar o vínculo
+        //            {
+        //                existingVinculo.IdGestor = vinculo.IdGestor;
+        //                existingVinculo.IdFuncionario = vinculo.IdFuncionario;
+        //                existingVinculo.DataInicio = DateTime.Now; // aqui também deve estar errado. Vai gravar timestamp em DataFim??
+        //                _context.TB_Vinculos.Update(existingVinculo);
+        //            }
+        //        }
 
-                else // senão cria o vínculo. Isso é para funcionários novos. Talvez melhor usar o .append(), que já funciona lá no Site.js
-                {
-                    _context.TB_Vinculos.Add(new VinculosModel
-                    {
-                        IdGestor = vinculo.IdGestor,
-                        IdFuncionario = vinculo.IdFuncionario,
-                        DataInicio = DateTime.Now,
-                        DataFim = null
-                    });
-                }
+        //        else // senão cria o vínculo. Isso é para funcionários novos. Talvez melhor usar o .append(), que já funciona lá no Site.js
+        //        {
+        //            _context.TB_Vinculos.Add(new VinculosModel
+        //            {
+        //                IdGestor = vinculo.IdGestor,
+        //                IdFuncionario = vinculo.IdFuncionario,
+        //                DataInicio = DateTime.Now,
+        //                DataFim = null
+        //            });
+        //        }
 
-            _context.SaveChanges();
-            }
+        //    _context.SaveChanges();
+        //    }
 
-            return Json(new {success = true});
-        }
+        //    return Json(new {success = true});
+        //}
 
         [Authorize]
         public IActionResult AdicionarNovoFuncionario()
@@ -136,11 +139,6 @@ namespace BdHorasZero.Controllers
         [Authorize]
         public async Task<IActionResult> RemoverFuncionario()
         {
-            //AQUI ESTAVA FUNCIONANDO:
-            //var viewModel = await _gestoresService.ObterGrupoDoGestorLogado();
-            //return View(viewModel);
-            ///////////////////////////
-
             var gestorLogado = _gestoresService.ObterGestorDaSessao().IdGestor;
             var vinculos = _context.TB_Vinculos
                 .Where(v => v.IdGestor == gestorLogado && v.DataFim == null)
@@ -158,9 +156,11 @@ namespace BdHorasZero.Controllers
 
                             //Saldo = f.saldo, // ...em preparação...
                         };
+
+            grupo = grupo.ToList();
                         
 
-            return View(grupo.ToList());
+            return View(grupo);
         }
 
 
@@ -174,19 +174,13 @@ namespace BdHorasZero.Controllers
         [Authorize]
         public IActionResult ConfirmarRemoverFuncionario(int id)
         {
-            FuncionariosModel funcionario = _gestoresService.ListarPorId(id);
+            FuncionariosModel funcionario = _gestoresRepository.ListarPorId(id);
             return View(funcionario);
         }
 
-
-
-
-
-
-
         public IActionResult RemoverDoGrupo(int id)
         {
-            _gestoresService.Remover(id);
+            _gestoresRepository.RemoverDoGrupo(id);
             return Redirect("~/Gestores/Index");
         }
     }

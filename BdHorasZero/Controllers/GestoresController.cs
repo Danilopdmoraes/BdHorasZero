@@ -1,17 +1,13 @@
 ﻿using BdHorasZero.Data;
 using BdHorasZero.Filters;
 using BdHorasZero.Models;
-using BdHorasZero.Models.ViewModels;
 using BdHorasZero.Repository;
 using BdHorasZero.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace BdHorasZero.Controllers
 {
-
-    // filtro para obter as informações do Gestor logado
     [ServiceFilter(typeof(GestorLogadoFilter))]
 
     public class GestoresController : Controller

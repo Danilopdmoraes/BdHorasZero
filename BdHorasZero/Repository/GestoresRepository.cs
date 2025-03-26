@@ -1,8 +1,6 @@
 ﻿using BdHorasZero.Data;
 using BdHorasZero.Models;
-using BdHorasZero.Models.ViewModels;
 using BdHorasZero.Services;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace BdHorasZero.Repository
 {
@@ -32,9 +30,28 @@ namespace BdHorasZero.Repository
             return gestor;
         }
 
-        //public List<VinculosModel> ListarGrupo()
-        //{
-        //    var grupoListado = _context.TB_Vinculos.ToList();
-        //}
+
+
+        public FuncionariosModel ListarPorId(int id)
+        {
+            return _context.TB_Funcionarios.FirstOrDefault(f => f.IdFuncionario == id);
+        }
+
+
+
+        public bool RemoverDoGrupo(int id)
+        {
+            var vinculo = _context.TB_Vinculos.FirstOrDefault(v => v.IdFuncionario == id && v.DataFim == null);
+
+            if (vinculo == null)
+                throw new Exception("Houve um erro na remoção do Funcionário!");
+
+            vinculo.DataFim = DateTime.UtcNow;
+
+            _context.TB_Vinculos.Update(vinculo);
+            _context.SaveChanges();
+
+            return true;
+        }
     }
 }

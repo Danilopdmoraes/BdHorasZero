@@ -10,6 +10,9 @@ namespace BdHorasZero.Repository
         
         GestoresModel AtualizarTbGestores(GestoresModel gestor);
 
+        FuncionariosModel ListarPorId(int id);
+        bool RemoverDoGrupo(int id);
+
 
     }
 }

@@ -3,8 +3,6 @@ using System.Text.Json;
 using BdHorasZero.Data;
 using BdHorasZero.Models;
 using BdHorasZero.Models.ViewModels;
-//using BdHorasZero.ViewModels;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BdHorasZero.Services
@@ -40,6 +38,8 @@ namespace BdHorasZero.Services
             }
         }
 
+        //-------------------------------------------------------------------------------------------------------------
+
         public GestoresModel? ObterGestorDaSessao()
         {
             var context = _httpContextAccessor.HttpContext;
@@ -50,7 +50,7 @@ namespace BdHorasZero.Services
             return string.IsNullOrEmpty(sessionData) ? null : JsonSerializer.Deserialize<GestoresModel>(sessionData);
         }
 
-
+        //-------------------------------------------------------------------------------------------------------------
 
         public async Task<GestoresFuncionariosVinculosViewModel> ObterGrupoDoGestorLogado()
         {
@@ -78,28 +78,32 @@ namespace BdHorasZero.Services
             };
         }
 
-
-        // OBS: testar e, se funcionar, colocar a classe abaixo em Repository:
-
-        public FuncionariosModel ListarPorId(int id)
+        public async Task<string?> ObterPossuiGrupoAsync(string userId)
         {
-            return _context.TB_Funcionarios.FirstOrDefault(f => f.IdFuncionario == id);
+            var possuiGrupo = await _context.TB_Gestores
+                .Where(g => g.IdExclusivo == userId)
+                .Select(g => g.NomeGrupo)
+                .FirstOrDefaultAsync();
+            return possuiGrupo;
         }
 
-        public bool Remover(int id)
-        {
-            //FuncionariosModel funcionarioRemovido = ListarPorId(id);
-            var vinculo = _context.TB_Vinculos.FirstOrDefault(v => v.IdFuncionario == id);
+        //-------------------------------------------------------------------------------------------------------------
 
-            if (vinculo == null) 
-                throw new Exception("Houve um erro na remoção do Funcionário");
+        //public bool Remover(int id)
+        //{
+        //    var vinculo = _context.TB_Vinculos.FirstOrDefault(v => v.IdFuncionario == id);
 
-            vinculo.DataFim = DateTime.UtcNow;
+        //    if (vinculo == null) 
+        //        throw new Exception("Houve um erro na remoção do Funcionário");
 
-            _context.TB_Vinculos.Update(vinculo);
-            _context.SaveChanges();
+        //    vinculo.DataFim = DateTime.UtcNow;
 
-            return true;
-        }
+        //    _context.TB_Vinculos.Update(vinculo);
+        //    _context.SaveChanges();
+
+        //    return true;
+        //}
+
+        //-------------------------------------------------------------------------------------------------------------
     }
 }
